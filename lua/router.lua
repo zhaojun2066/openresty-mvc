@@ -58,7 +58,7 @@ function _M.go()
     elseif "POST" == request_method then
          handler = routes.post[uri]
     end
-    if not handler then
+    if  handler then
         handler(req,res)
     else
         err_handler(req,res)
