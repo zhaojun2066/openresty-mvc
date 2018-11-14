@@ -5,7 +5,7 @@
 -- Time: 15:52
 -- To change this template use File | Settings | File Templates.
 --
-local json = require("cjson.safe")
+local json = require("json")
 local template = require "resty.template"
 
 local ngx = ngx

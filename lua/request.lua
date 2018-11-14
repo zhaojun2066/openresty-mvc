@@ -4,7 +4,7 @@
 -- Date: 2018/11/12
 -- Time: 14:16
 -- To change this template use File | Settings | File Templates.
-local json = require("cjson.safe")
+local json = require("json")
 local _M={}
 local ngx = ngx
 local mt ={
