@@ -5,7 +5,8 @@
 -- Time: 15:55
 -- To change this template use File | Settings | File Templates.
 --
-
+local logger = ngx.log                                                 --- function ngx log
+local ERR = ngx.ERR                                                    --- ngx log  level
 local router = require("router")
 local app = router.new()
 
