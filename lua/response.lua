@@ -4,7 +4,7 @@
 -- Date: 2018/11/12
 -- Time: 15:52
 -- To change this template use File | Settings | File Templates.
---
+--todo: rest 支持/hello/:id/:page,的解析
 local json = require("json")
 local template = require "resty.template"
 

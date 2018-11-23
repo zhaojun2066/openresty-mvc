@@ -71,6 +71,12 @@ function _M.new()
     }
     return setmetatable(self, mt)
 end
+
+
+-- request 设置request 范围参数，在forward 范围内
+function _M.add_param(self,k,v)
+    self.body[k] = v
+end
 --
 --_M.param = params()
 --_M.uri = ngx.req.uri

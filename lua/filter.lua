@@ -13,10 +13,12 @@ local pairs = pairs
 local filers = {
 }
 function _M.filter(path,preHandler,afterHandler)
-    filers[path] = {
-        pre = preHandler,
-        after = afterHandler
-    }
+    if not filers[path] then
+        filers[path] = {
+            pre = preHandler,
+            after = afterHandler
+        }
+    end
 end
 
 
