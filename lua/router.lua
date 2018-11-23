@@ -8,8 +8,10 @@
 
 local request = require("request")
 local response = require("response")
+local filters = require("filters")
 
 local ngx = ngx
+local pairs= pairs
 local _M={}
 local mt = {
     __index = _M
@@ -24,7 +26,8 @@ local routes = {
 local err_handler
 
 function _M.new()
-    local self = {}
+    local self = {
+    }
     return setmetatable(self, mt)
 end
 
@@ -59,7 +62,20 @@ function _M.go()
          handler = routes.post[uri]
     end
     if  handler then
+        local pre_handlers, after_handlers= filters.get_fiter_handlers(uri)
+        if pre_handlers then
+            for _,pre_handler in pairs(pre_handlers) do
+                pre_handler(req,res)
+            end
+        end
+
         handler(req,res)
+
+        if after_handlers then
+            for _,after_handler in pairs(after_handlers) do
+                after_handler(req,res)
+            end
+        end
     else
         err_handler(req,res)
     end
